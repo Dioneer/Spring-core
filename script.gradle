@@ -1,0 +1,41 @@
+println "configuration.phase"
+println "Gradle: ${gradle.hashCode()}, project: ${project.hashCode()}, rooeProject: ${rootProject.hashCode()}"
+println ext.javaVersion
+println ext.currentDate
+
+task hello(group: "Pegas", description: "Hello") {
+    println "description: ${description}, group: ${group}, actions: ${actions.size()}"
+    doLast{
+        println "dolast"
+    }
+    doFirst{
+        println "dofirst"
+    }
+}
+task task1{
+    doLast {
+        println "task 1"
+    }
+}
+task task2{
+    doLast {
+        println "task 2"
+    }
+}
+task task3{
+    doLast {
+        println "task 3"
+    }
+}
+task task4{
+    doLast {
+        println "task 4"
+    }
+}
+task2.dependsOn(task3)
+task2.dependsOn(task4)
+gradle.taskGraph.whenReady {
+    TaskExecutionGraph graph ->
+        println "Grath: "
+        graph.allTasks.each(it-> println "${it.name}")
+}
