@@ -25,6 +25,7 @@
                 <entry key="address" value="Minsk"/>
             </map>
         </constructor-arg>
+        <constructor-arg ref="connections"/>
     </bean>
     <bean id="repo2" name="r2" class="Pegas.db.UserRepository">
         <property name="userName" ref="driver"/>
@@ -45,5 +46,10 @@
     <bean id="repo6" name="userService" class="Pegas.service.UserService">
         <constructor-arg ref="userMapper"/>
         <constructor-arg ref="userRepository"/>
+    </bean>
+    <bean id="connections" name="connections" class="Pegas.utils.Connections">
+        <constructor-arg name="url" value="${db.url}"/>
+        <constructor-arg name="userName" value="${db.username}"/>
+        <constructor-arg name="password" value="${db.password}"/>
     </bean>
 </beans>
