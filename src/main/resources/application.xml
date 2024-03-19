@@ -2,15 +2,21 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="repo1" name="r1" class="Pegas.db.UserRepository">
-        <constructor-arg name="userName" value="elena.gulkina@mail.ru"/>
-        <constructor-arg name="poolSize" value="10"/>
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+<!--    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">-->
+<!--        <property name="location" value="classpath:application.properties"/>-->
+<!--    </bean>-->
+    <context:property-placeholder location="classpath:application.properties"/>
+    <bean id="repo1" name="userRepository" class="Pegas.db.UserRepository" init-method="init" destroy-method="destroy">
+        <constructor-arg name="userName" value="${db.username}"/>
+        <constructor-arg name="poolSize" value="${db.pool.size}"/>
         <constructor-arg name="args">
                 <list>
                     <value>1</value>
                     <value>2</value>
-                    <value>3</value>
+                    <ref bean="driver"/>
                 </list>
         </constructor-arg>
         <constructor-arg name="properties">
@@ -20,5 +26,24 @@
             </map>
         </constructor-arg>
     </bean>
-
+    <bean id="repo2" name="r2" class="Pegas.db.UserRepository">
+        <property name="userName" ref="driver"/>
+        <property name="properties">
+            <map>
+                <entry key="user" value="Elena"/>
+                <entry key-ref="driver" value-ref="driver"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="repo3" name="driver" class="java.lang.String">
+        <constructor-arg value="PostgresDriver"/>
+    </bean>
+    <bean id="repo4" name="userDto" class="Pegas.dto.UserDTO"/>
+    <bean id="repo5" name="userMapper" class="Pegas.mapper.UserMapper">
+        <constructor-arg ref="userDto"/>
+    </bean>
+    <bean id="repo6" name="userService" class="Pegas.service.UserService">
+        <constructor-arg ref="userMapper"/>
+        <constructor-arg ref="userRepository"/>
+    </bean>
 </beans>
