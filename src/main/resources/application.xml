@@ -39,6 +39,7 @@
         <constructor-arg name="url" value="${db.url}"/>
         <constructor-arg name="userName" value="${db.username}"/>
         <constructor-arg name="password" value="${db.password}"/>
+        <constructor-arg name="size" value="${db.pool.size}"/>
     </bean>
     <bean id="userDto" name="userDto" class="Pegas.dto.UserDTO"/>
     <bean id="companyDto" name="companyDto" class="Pegas.dto.CompanyDTO"/>

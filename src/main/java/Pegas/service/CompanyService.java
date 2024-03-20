@@ -14,7 +14,7 @@ import java.util.Optional;
 public class CompanyService {
     private final CompanyMapper companyMapper;
     private final CompanyRepository companyRepository;
-    public Optional<CompanyDTO> findUserById(Long id) throws SQLException {
+    public Optional<CompanyDTO> findUserById(Long id) throws SQLException, InterruptedException {
         return companyRepository.findById(id).map(companyMapper::fromTo);
     }
 }

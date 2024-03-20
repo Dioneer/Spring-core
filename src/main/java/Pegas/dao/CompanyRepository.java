@@ -24,20 +24,23 @@ public class CompanyRepository {
         System.out.println("init UserRepository");
     }
 
-    public Optional<Company> findById (Long id) throws SQLException {
+    public Optional<Company> findById (Long id) {
         String sql = """
                 select * from company
                 where id = ?
                 """;
-        Connection connection = connections.open();
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setLong(1, id);
-        ResultSet result = preparedStatement.executeQuery();
-        Company company = null;
-        while (result.next()) {
-            company = buildCompany(result);
+        try(Connection connection = connections.open()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setLong(1, id);
+            ResultSet result = preparedStatement.executeQuery();
+            Company company = null;
+            while (result.next()) {
+                company = buildCompany(result);
+            }
+            return Optional.ofNullable(company);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-        return Optional.ofNullable(company);
     }
 
     private Company buildCompany(ResultSet result) throws SQLException{

@@ -18,20 +18,23 @@ public class UserRepository {
     public void init(){
         System.out.println("init UserRepository");
     }
-    public Optional<User> findById (Long id) throws SQLException {
+    public Optional<User> findById (Long id) {
         String sql = """
                 select * from users
                 where id = ?
                 """;
-        Connection connection = connections.open();
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setLong(1, id);
-        ResultSet result = preparedStatement.executeQuery();
-        User user = null;
-        while (result.next()) {
-            user = buildUser(result);
+        try(Connection connection = connections.open()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setLong(1, id);
+            ResultSet result = preparedStatement.executeQuery();
+            User user = null;
+            while (result.next()) {
+                user = buildUser(result);
+            }
+            return Optional.ofNullable(user);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-        return Optional.ofNullable(user);
     }
     private User buildUser(ResultSet result) throws SQLException {
         return User.builder()

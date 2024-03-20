@@ -14,7 +14,7 @@ import java.util.Optional;
 public class UserService {
     private final UserMapper userMapper;
     private final UserRepository userRepository;
-    public Optional<UserDTO> findUserById(Long id) throws SQLException {
+    public Optional<UserDTO> findUserById(Long id) throws SQLException, InterruptedException {
         return userRepository.findById(id).map(userMapper::fromTo);
     }
 }
