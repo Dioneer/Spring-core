@@ -2,10 +2,13 @@ package Pegas.dao;
 
 import Pegas.entity.Company;
 import Pegas.utils.Connections;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,12 +17,12 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 @AllArgsConstructor
-@NoArgsConstructor
-@Setter
 @ToString
+@Repository
 public class CompanyRepository {
-    private Connections connections;
 
+    private Connections connections;
+    @PostConstruct
     public void init(){
         System.out.println("init UserRepository");
     }
@@ -49,7 +52,7 @@ public class CompanyRepository {
                 .nameCompany(result.getString("nameCompany"))
                 .build();
     }
-
+    @PreDestroy
     public void destroy(){
         System.out.println("destroy UserRepository");
     }

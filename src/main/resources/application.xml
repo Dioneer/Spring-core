@@ -8,7 +8,11 @@
 <!--    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">-->
 <!--        <property name="location" value="classpath:application.properties"/>-->
 <!--    </bean>-->
+<!--    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
     <context:property-placeholder location="classpath:application.properties"/>
+    <context:annotation-config/>
+    <context:component-scan base-package="Pegas"/>
+<!--    <bean class="Pegas.dao.bpp.InjectBeanPostProcessor"/>-->
 <!--    <bean id="repo2" name="r2" class="Pegas.dao.UserRepository">-->
 <!--        <property name="userName" ref="driver"/>-->
 <!--        <property name="properties">-->
@@ -41,27 +45,35 @@
         <constructor-arg name="password" value="${db.password}"/>
         <constructor-arg name="size" value="${db.pool.size}"/>
     </bean>
-    <bean id="userDto" name="userDto" class="Pegas.dto.UserDTO"/>
-    <bean id="companyDto" name="companyDto" class="Pegas.dto.CompanyDTO"/>
-    <bean id="userMapper" name="userMapper" class="Pegas.mapper.UserMapper">
-        <constructor-arg ref="userDto"/>
-    </bean>
-    <bean id="companyMapper" name="companyMapper" class="Pegas.mapper.CompanyMapper">
-        <constructor-arg ref="companyDto"/>
-    </bean>
-    <bean id="userRepository" name="userRepository" class="Pegas.dao.UserRepository" init-method="init" destroy-method="destroy">
-        <constructor-arg ref="connections"/>
-    </bean>
-    <bean id="companyRepository" name="companyRepository" class="Pegas.dao.CompanyRepository" init-method="init" destroy-method="destroy">
-        <constructor-arg ref="connections"/>
-    </bean>
-    <bean id="userService" name="userService" class="Pegas.service.UserService">
-        <constructor-arg ref="userMapper"/>
-        <constructor-arg ref="userRepository"/>
-    </bean>
-    <bean id="companyService" name="companyService" class="Pegas.service.CompanyService">
-        <constructor-arg ref="companyMapper"/>
-        <constructor-arg ref="companyRepository"/>
-    </bean>
+<!--    <bean id="userDto" name="userDto" class="Pegas.dto.UserDTO"/>-->
+<!--    <bean id="companyDto" name="companyDto" class="Pegas.dto.CompanyDTO"/>-->
+<!--    <bean id="userMapper" name="userMapper" class="Pegas.mapper.UserMapper">-->
+<!--        <constructor-arg ref="userDto"/>-->
+<!--    </bean>-->
+<!--    <bean id="companyMapper" name="companyMapper" class="Pegas.mapper.CompanyMapper">-->
+<!--        <constructor-arg ref="companyDto"/>-->
+<!--    </bean>-->
+<!--    <bean id="userRepository" name="userRepository" class="Pegas.dao.UserRepository">-->
+<!--        <constructor-arg ref="connections"/>-->
+<!--    </bean>-->
+<!--    <bean id="paymentRepository" name="paymentRepository" class="Pegas.dao.PaymentRepository">-->
+<!--    </bean>-->
+<!--    <bean id="connectionPool" name="connectionPool" class="Pegas.dao.pool.ConnectionPool">-->
+<!--        <constructor-arg name="userName" value="${db.username}"/>-->
+<!--        <constructor-arg name="password" value="${db.password}"/>-->
+<!--        <constructor-arg name="poolSize" value="${db.pool.size}"/>-->
+<!--        <constructor-arg name="url" value="${db.url}"/>-->
+<!--    </bean>-->
+<!--    <bean id="companyRepository" name="companyRepository" class="Pegas.dao.CompanyRepository">-->
+<!--        <constructor-arg ref="connections"/>-->
+<!--    </bean>-->
+<!--    <bean id="userService" name="userService" class="Pegas.service.UserService">-->
+<!--        <constructor-arg ref="userMapper"/>-->
+<!--        <constructor-arg ref="userRepository"/>-->
+<!--    </bean>-->
+<!--    <bean id="companyService" name="companyService" class="Pegas.service.CompanyService">-->
+<!--        <constructor-arg ref="companyMapper"/>-->
+<!--        <constructor-arg ref="companyRepository"/>-->
+<!--    </bean>-->
 
 </beans>

@@ -3,18 +3,20 @@ package Pegas.dao;
 import Pegas.entity.Role;
 import Pegas.entity.User;
 import Pegas.utils.Connections;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import lombok.*;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.Optional;
 
 @AllArgsConstructor
-@NoArgsConstructor
-@Setter
 @ToString
+@Repository
 public class UserRepository {
     private Connections connections;
-
+    @PostConstruct
     public void init(){
         System.out.println("init UserRepository");
     }
@@ -48,6 +50,7 @@ public class UserRepository {
                 .payment_id(result.getInt("payment_id"))
                 .build();
     }
+    @PreDestroy
     public void destroy(){
         System.out.println("destroy UserRepository");
     }
