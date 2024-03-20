@@ -1,20 +1,20 @@
 package Pegas.service;
 
-import Pegas.db.User;
-import Pegas.db.UserRepository;
+import Pegas.dto.UserDTO;
+import Pegas.dao.UserRepository;
 import Pegas.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
 import java.sql.SQLException;
-import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @ToString
 public class UserService {
     private final UserMapper userMapper;
     private final UserRepository userRepository;
-    public List<User> findUserById(Long id) throws SQLException {
-        return userRepository.findById(id);
+    public Optional<UserDTO> findUserById(Long id) throws SQLException {
+        return userRepository.findById(id).map(userMapper::fromTo);
     }
 }

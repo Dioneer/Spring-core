@@ -1,7 +1,19 @@
 package Pegas.dto;
 
-import lombok.ToString;
+import Pegas.entity.Role;
+import lombok.*;
 
-@ToString
+import java.time.LocalDate;
+
+@Builder
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserDTO {
+    private String firstname;
+    private String lastname;
+    private LocalDate birthday;
+    private String username;
+    private Role role;
+    private int companyId;
 }

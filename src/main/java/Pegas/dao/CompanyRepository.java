@@ -1,34 +1,30 @@
-package Pegas.db;
+package Pegas.dao;
 
+import Pegas.entity.Company;
 import Pegas.utils.Connections;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @ToString
-public class UserRepository {
-    private String userName;
-    private int poolSize;
-    private List<Object> args;
-    private Map<String, Object> properties;
+public class CompanyRepository {
     private Connections connections;
 
     public void init(){
         System.out.println("init UserRepository");
     }
-    public List<User> findById (Long id) throws SQLException {
-        List<User> arr = new ArrayList<>();
+
+    public Optional<Company> findById (Long id) throws SQLException {
         String sql = """
                 select * from company
                 where id = ?
@@ -37,11 +33,20 @@ public class UserRepository {
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setLong(1, id);
         ResultSet result = preparedStatement.executeQuery();
+        Company company = null;
         while (result.next()) {
-            arr.add(new User(result.getLong("id"), result.getString("nameCompany")));
+            company = buildCompany(result);
         }
-        return arr;
+        return Optional.ofNullable(company);
     }
+
+    private Company buildCompany(ResultSet result) throws SQLException{
+        return Company.builder()
+                .id(result.getLong("id"))
+                .nameCompany(result.getString("nameCompany"))
+                .build();
+    }
+
     public void destroy(){
         System.out.println("destroy UserRepository");
     }
