@@ -1,5 +1,6 @@
 package Pegas.dao;
 
+import Pegas.dao.pool.ConnectionPool;
 import Pegas.entity.Role;
 import Pegas.entity.User;
 import Pegas.utils.Connections;
@@ -15,7 +16,7 @@ import java.util.Optional;
 @ToString
 @Repository
 public class UserRepository {
-    private Connections connections;
+    private ConnectionPool connectionPool;
     @PostConstruct
     public void init(){
         System.out.println("init UserRepository");
@@ -25,7 +26,7 @@ public class UserRepository {
                 select * from users
                 where id = ?
                 """;
-        try(Connection connection = connections.open()) {
+        try(Connection connection = connectionPool.open()) {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setLong(1, id);
             ResultSet result = preparedStatement.executeQuery();

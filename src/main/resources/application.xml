@@ -9,9 +9,10 @@
 <!--        <property name="location" value="classpath:application.properties"/>-->
 <!--    </bean>-->
 <!--    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
-    <context:property-placeholder location="classpath:application.properties"/>
-    <context:annotation-config/>
-    <context:component-scan base-package="Pegas"/>
+<!--    <context:property-placeholder location="classpath:application.properties"/>-->
+<!--    <context:annotation-config/>-->
+<!--    <context:component-scan base-package="Pegas"/>-->
+<!--    <bean class="Pegas.config.ApplicationConfiguration"/>-->
 <!--    <bean class="Pegas.dao.bpp.InjectBeanPostProcessor"/>-->
 <!--    <bean id="repo2" name="r2" class="Pegas.dao.UserRepository">-->
 <!--        <property name="userName" ref="driver"/>-->
@@ -39,12 +40,12 @@
 <!--    <bean id="repo3" name="driver" class="java.lang.String">-->
 <!--        <constructor-arg value="PostgresDriver"/>-->
 <!--    </bean>-->
-    <bean id="connections" name="connections" class="Pegas.utils.Connections">
-        <constructor-arg name="url" value="${db.url}"/>
-        <constructor-arg name="userName" value="${db.username}"/>
-        <constructor-arg name="password" value="${db.password}"/>
-        <constructor-arg name="size" value="${db.pool.size}"/>
-    </bean>
+<!--    <bean id="connections" name="connections" class="Pegas.utils.Connections">-->
+<!--        <constructor-arg name="url" value="${db.url}"/>-->
+<!--        <constructor-arg name="userName" value="${db.username}"/>-->
+<!--        <constructor-arg name="password" value="${db.password}"/>-->
+<!--        <constructor-arg name="size" value="${db.pool.size}"/>-->
+<!--    </bean>-->
 <!--    <bean id="userDto" name="userDto" class="Pegas.dto.UserDTO"/>-->
 <!--    <bean id="companyDto" name="companyDto" class="Pegas.dto.CompanyDTO"/>-->
 <!--    <bean id="userMapper" name="userMapper" class="Pegas.mapper.UserMapper">-->

@@ -16,9 +16,14 @@ public class PaymentRepository {
 //    @InjectBean
 //    @Autowired
 //    @Qualifier("connectionPool")
-    private ConnectionPool connectionPool;
-    @Value("${db.pool.size}")
+    private ConnectionPool connectionPool1;
     private Integer poolSize;
-    @Autowired
-    private List<ConnectionPool> connectionPools;
+    private List<ConnectionPool> connectionPool;
+
+    public PaymentRepository(ConnectionPool connectionPool1,
+                             @Value("${db.pool.size}") Integer poolSize, List<ConnectionPool> connectionPool) {
+        this.connectionPool1 = connectionPool1;
+        this.poolSize = poolSize;
+        this.connectionPool = connectionPool;
+    }
 }
