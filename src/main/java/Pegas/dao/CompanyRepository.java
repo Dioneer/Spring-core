@@ -1,6 +1,6 @@
 package Pegas.dao;
 
-import Pegas.dao.pool.ConnectionPool;
+import Pegas.pool.ConnectionPool;
 import Pegas.entity.Company;
 import Pegas.utils.Connections;
 import jakarta.annotation.PostConstruct;
@@ -16,15 +16,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
-@AllArgsConstructor
+
 @ToString
 @Repository
 public class CompanyRepository {
 
-    private ConnectionPool connectionPool;
+    private final ConnectionPool connectionPool;
     @PostConstruct
     public void init(){
         System.out.println("init UserRepository");
+    }
+
+    public CompanyRepository(ConnectionPool connectionPool) {
+        this.connectionPool = connectionPool;
     }
 
     public Optional<Company> findById (Long id) {

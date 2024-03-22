@@ -2,8 +2,12 @@ plugins {
     id 'java'
     id 'application'
     id 'org.javamodularity.moduleplugin' version '1.8.12'
+    id 'org.springframework.boot' version '3.2.4'
+    id 'io.spring.dependency-management' version '1.1.4'
 }
-
+wrapper{
+    gradleVersion("8.6")
+}
 group 'Pegas'
 version '1.0-SNAPSHOT'
 
@@ -26,14 +30,12 @@ application {
 }
 
 dependencies {
-    implementation 'jakarta.annotation:jakarta.annotation-api:2.1.1'
-    implementation 'org.postgresql:postgresql:42.7.3'
-    implementation 'org.springframework:spring-core:6.1.0'
-    implementation 'org.springframework:spring-context:6.1.0'
-    compileOnly 'org.projectlombok:lombok:1.18.30'
-    annotationProcessor 'org.projectlombok:lombok:1.18.30'
-    testCompileOnly 'org.projectlombok:lombok:1.18.30'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok:1.18.32'
+    annotationProcessor 'org.projectlombok:lombok:1.18.32'
+    testCompileOnly 'org.projectlombok:lombok:1.18.32'
+    implementation 'org.postgresql:postgresql:42.7.2'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.32'
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }

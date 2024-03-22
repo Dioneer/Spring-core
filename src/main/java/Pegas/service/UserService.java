@@ -15,9 +15,7 @@ import java.util.Optional;
 @ToString
 @Service
 public class UserService {
-    @Autowired
     private final UserMapper userMapper;
-    @Autowired
     private final UserRepository userRepository;
     public Optional<UserDTO> findUserById(Long id) throws SQLException, InterruptedException {
         return userRepository.findById(id).map(userMapper::fromTo);

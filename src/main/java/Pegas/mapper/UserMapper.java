@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 @ToString
 @Component
 public class UserMapper implements Mapper<User, UserDTO>{
-    @Autowired
     private UserDTO userDTO;
     @Override
     public UserDTO fromTo(User user) {

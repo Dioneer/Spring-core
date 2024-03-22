@@ -1,6 +1,6 @@
 package Pegas.dao;
 
-import Pegas.dao.pool.ConnectionPool;
+import Pegas.pool.ConnectionPool;
 import Pegas.entity.Role;
 import Pegas.entity.User;
 import Pegas.utils.Connections;

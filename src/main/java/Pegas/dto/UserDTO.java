@@ -10,7 +10,6 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Component
 public class UserDTO {
     private String firstname;
     private String lastname;

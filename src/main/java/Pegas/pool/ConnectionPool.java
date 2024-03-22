@@ -1,4 +1,4 @@
-package Pegas.dao.pool;
+package Pegas.pool;
 
 import lombok.ToString;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,10 +11,10 @@ import java.sql.SQLException;
 @ToString
 @Component
 public class ConnectionPool {
-    private String username;
-    private String password;
-    private Integer poolSize;
-    private String url;
+    private final String username;
+    private final String password;
+    private final Integer poolSize;
+    private final String url;
 
     public ConnectionPool(@Value("${db.username}")String username,@Value("${db.password}") String password,
                           @Value("${db.pool.size}") Integer poolSize,@Value("${db.url}") String url) {
@@ -38,3 +38,4 @@ public class ConnectionPool {
         return DriverManager.getConnection(url,username,password);
     }
 }
+

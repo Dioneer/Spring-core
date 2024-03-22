@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Component
 public class CompanyDTO{
     private Long id;
     private String companyname;
