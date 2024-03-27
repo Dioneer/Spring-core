@@ -1,0 +1,1 @@
+2024-03-27T22:37:56.260+03:00  INFO 14468 --- [main] Pegas.pool.ConnectionPool                : init connection pool

@@ -1,6 +1,8 @@
 package Pegas.pool;
 
+import jakarta.annotation.PostConstruct;
 import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -8,6 +10,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+@Slf4j
+@Component
 @ToString
 public class ConnectionPool {
     private final String username;
@@ -35,6 +39,10 @@ public class ConnectionPool {
     }
     public Connection open() throws SQLException {
         return DriverManager.getConnection(url,username,password);
+    }
+    @PostConstruct
+    private void init(){
+        log.info("init connection pool");
     }
 }
 
