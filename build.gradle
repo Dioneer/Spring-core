@@ -1,15 +1,15 @@
 plugins {
     id 'java'
-    id 'application'
-    id 'org.javamodularity.moduleplugin' version '1.8.12'
+    id 'io.freefair.lombok' version '8.0.1'
     id 'org.springframework.boot' version '3.2.4'
     id 'io.spring.dependency-management' version '1.1.4'
 }
 wrapper{
     gradleVersion("8.6")
 }
-group 'Pegas'
-version '1.0-SNAPSHOT'
+group = 'Pegas'
+version = '1.0-SNAPSHOT'
+sourceCompatibility = '17'
 
 repositories {
     mavenCentral()
@@ -25,17 +25,13 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
-application {
-    mainModule = 'pegas.gradle'
-}
+//application {
+//    mainModule = 'pegas.gradle'
+//}
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    compileOnly 'org.projectlombok:lombok:1.18.32'
-    annotationProcessor 'org.projectlombok:lombok:1.18.32'
-    testCompileOnly 'org.projectlombok:lombok:1.18.32'
     implementation 'org.postgresql:postgresql:42.7.2'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.32'
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }

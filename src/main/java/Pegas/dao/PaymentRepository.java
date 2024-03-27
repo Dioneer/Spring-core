@@ -16,9 +16,11 @@ public class PaymentRepository {
 //    @InjectBean
 //    @Autowired
 //    @Qualifier("connectionPool")
-    private final ConnectionPool connectionPool;
+    private ConnectionPool connectionPool;
+    private List<ConnectionPool> connectionPool1;
 
-    public PaymentRepository(ConnectionPool connectionPool) {
+    public PaymentRepository(List<ConnectionPool> connectionPool1, ConnectionPool connectionPool) {
         this.connectionPool = connectionPool;
+        this.connectionPool1 = connectionPool1;
     }
 }

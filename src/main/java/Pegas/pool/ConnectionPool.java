@@ -9,7 +9,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 @ToString
-@Component
 public class ConnectionPool {
     private final String username;
     private final String password;

@@ -8,7 +8,8 @@ import org.springframework.context.annotation.*;
 
 //@ImportResource("classpath:application.xml")
 @Configuration
-//@PropertySource("classpath:application.properties")
+@ComponentScan("Pegas")
+@PropertySource("classpath:application.properties")
 public class ApplicationConfiguration {
 
     @Bean("connectionPool")
@@ -17,6 +18,7 @@ public class ApplicationConfiguration {
                 12,"jdbc:postgresql://localhost:5432/postgres");
     }
     @Bean("connectionPool1")
+    @Profile("dev")
     public ConnectionPool connectionPool1(){
         return new ConnectionPool("mysql", "123456",
                 12,"jdbc:postgresql://localhost:5432/postgres");
@@ -28,9 +30,5 @@ public class ApplicationConfiguration {
     @Bean
     public CompanyRepository companyRepository(){
         return new CompanyRepository(connectionPool());
-    }
-    @Bean
-    public PaymentRepository paymentRepository(){
-        return new PaymentRepository(connectionPool1());
     }
 }
