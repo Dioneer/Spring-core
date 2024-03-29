@@ -1,1 +1,12 @@
-2024-03-27T22:37:56.260+03:00  INFO 14468 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-03-29T00:04:12.951+03:00  INFO 7404 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-03-29T00:04:44.381+03:00  INFO 1912 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-03-29T16:28:10.665+03:00  INFO 9168 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-03-29T16:35:40.382+03:00  INFO 18420 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-03-29T16:36:07.702+03:00  INFO 17504 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-03-29T17:25:26.021+03:00  INFO 17424 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-03-29T17:31:37.939+03:00  INFO 8480 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-03-29T17:35:37.054+03:00  INFO 18136 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-03-29T17:37:11.635+03:00  INFO 7712 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-03-29T17:52:09.897+03:00  INFO 12556 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-03-29T17:56:07.952+03:00  INFO 10176 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-03-29T17:56:28.845+03:00  INFO 18204 --- [main] Pegas.pool.ConnectionPool                : init connection pool

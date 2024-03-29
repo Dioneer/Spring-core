@@ -5,7 +5,8 @@ import lombok.*;
 @AllArgsConstructor
 @Data
 @Builder
+@RequiredArgsConstructor
 public class Company {
     private final Long id;
-    private final String nameCompany;
+    private String nameCompany;
 }

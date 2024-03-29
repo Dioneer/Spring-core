@@ -25,5 +25,6 @@ public class ApplicationRunner {
         System.out.println(userService.findUserById(1L));
         paymentService.show();
         System.out.println(context.getBean(DatabaseProperties.class));
+//        System.out.println(SpringProperties.getProperty("test")); only for properties
     }
 }
