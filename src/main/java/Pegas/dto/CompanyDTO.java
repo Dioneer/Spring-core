@@ -11,6 +11,6 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 @Data
 public class CompanyDTO{
-    private Long id;
+    private Integer id;
     private String companyname;
 }

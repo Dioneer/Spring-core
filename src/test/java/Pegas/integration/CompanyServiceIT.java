@@ -13,17 +13,18 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestConstructor;
 
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ActiveProfiles("test")
-@SpringBootTest(classes = ApplicationRunner.class)
+@SpringBootTest(classes = {TestApplicationRunner.class, ApplicationRunner.class})
 @RequiredArgsConstructor
 @TestConstructor(autowireMode = TestConstructor.AutowireMode.ALL)
 public class CompanyServiceIT {
-    private static final Long COMPANY_ID=1L;
+    private static final Integer COMPANY_ID=1;
     private static final String COMPANY_NAME = "Onion";
     private final CompanyService companyService;
 

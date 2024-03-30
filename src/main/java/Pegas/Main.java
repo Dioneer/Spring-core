@@ -15,7 +15,7 @@ public class Main {
         CompanyService companyService = context.getBean(CompanyService.class);
         PaymentService paymentService  = context.getBean(PaymentService.class);
         UserService userService = context.getBean(UserService.class);
-        System.out.println(companyService.findUserById(1L));
+//        System.out.println(companyService.findUserById(1));
         System.out.println(userService.findUserById(1L));
         paymentService.show();
     }

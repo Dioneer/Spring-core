@@ -19,7 +19,7 @@ public class UserMapper implements Mapper<User, UserDTO>{
                 .birthday(user.getBirthday())
                 .username(user.getUsername())
                 .role(user.getRole())
-                .companyId(user.getCompany_id())
+                .companyId(user.getCompany().getId())
                 .build();
     }
 }

@@ -1,63 +1,11 @@
 package Pegas.dao;
 
-import Pegas.pool.ConnectionPool;
 import Pegas.entity.Company;
-import Pegas.utils.Connections;
-import jakarta.annotation.PostConstruct;
-import jakarta.annotation.PreDestroy;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.List;
 import java.util.Optional;
 
-@ToString
-@Repository
-public class CompanyRepository {
-
-    private final ConnectionPool connectionPool;
-    @PostConstruct
-    public void init(){
-        System.out.println("init UserRepository");
-    }
-
-    public CompanyRepository(ConnectionPool connectionPool) {
-        this.connectionPool = connectionPool;
-    }
-
-    public Optional<Company> findById (Long id) {
-        String sql = """
-                select * from company
-                where id = ?
-                """;
-        try(Connection connection = connectionPool.open()) {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setLong(1, id);
-            ResultSet result = preparedStatement.executeQuery();
-            Company company = null;
-            while (result.next()) {
-                company = buildCompany(result);
-            }
-            return Optional.ofNullable(company);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private Company buildCompany(ResultSet result) throws SQLException{
-        return Company.builder()
-                .id(result.getLong("id"))
-                .nameCompany(result.getString("nameCompany"))
-                .build();
-    }
-    @PreDestroy
-    public void destroy(){
-        System.out.println("destroy UserRepository");
-    }
+public interface CompanyRepository extends JpaRepository<Company, Integer>{
 }

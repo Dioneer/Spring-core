@@ -12,19 +12,87 @@
   <component name="DBNavigator.Project.DatabaseBrowserManager">
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
-    <show-object-properties value="true" />
+    <show-object-properties value="false" />
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="8dd2ed96-24eb-494a-9eb1-d2651a305688">
-      <console name="Testdb" type="STANDARD" schema="" session="Main" />
+      <console name="dbForSpringData" type="STANDARD" schema="public" session="Main"><![CDATA[Create database springdata;]]></console>
+      <console name="fill_tables" type="STANDARD" schema="public" session="Main"><![CDATA[insert into company (name_company)
+values('Google'),('Meta'),('Amazon');
+insert into company_loclas(company_id, lang, description)
+values ((select id from company where name_company = 'Google'), 'en', 'Google decription'),
+((select id from company where name_company = 'Google'), 'ru', 'Google decription'),
+((select id from company where name_company = 'Meta'), 'en', 'Meta decription'),
+((select id from company where name_company = 'Meta'), 'ru', 'Meta decription'),
+((select id from company where name_company = 'Amazon'), 'en', 'Amazon decription'),
+((select id from company where name_company = 'Amazon'), 'ru', 'Amazon decription');
+insert into users(birthday_date, firstname, lastname, role, username, company_id)
+values ('1990-01-10', 'Ivan', 'Ivanov', 'ADMIN', 'ivanov@gmail.com', (select id from company where name_company = 'Google')),
+('1995-01-10', 'Petr', 'Petrov', 'USER', 'petrov@gmail.com', (select id from company where name_company = 'Google')),
+('1997-01-10', 'Nina', 'Sidorov', 'USER', 'sidorov@gmail.com', (select id from company where name_company = 'Meta')),
+('1998-01-10', 'Roma', 'Gogin', 'ADMIN', 'gogin@gmail.com', (select id from company where name_company = 'Amazon'));
+insert into chat(chat_name) values ('moscow'), ('java'), ('database');
+insert into users_chat(user_id, chat_id) 
+values ((select id from users where username = 'ivanov@gmail.com'), (select id from chat where chat_name = 'moscow')),
+((select id from users where username = 'petrov@gmail.com'), (select id from chat where chat_name = 'java')),
+((select id from users where username = 'petrov@gmail.com'), (select id from chat where chat_name = 'moscow')),
+((select id from users where username = 'ivanov@gmail.com'), (select id from chat where chat_name = 'java')),
+((select id from users where username = 'sidorov@gmail.com'), (select id from chat where chat_name = 'database')),
+((select id from users where username = 'gogin@gmail.com'), (select id from chat where chat_name = 'database'));
+
+insert into payment(amount, receiver_id)values (2356, (select id from users where username = 'petrov@gmail.com')),
+(2356, (select id from users where username = 'petrov@gmail.com')),
+(256325, (select id from users where username = 'ivanov@gmail.com')),
+(3895123, (select id from users where username = 'ivanov@gmail.com')),
+(123456789, (select id from users where username = 'sidorov@gmail.com')),
+(987654, (select id from users where username = 'sidorov@gmail.com')),
+(456654, (select id from users where username = 'gogin@gmail.com')),
+(123654321, (select id from users where username = 'gogin@gmail.com'));]]></console>
+      <console name="init_tables" type="STANDARD" schema="public" session="Main"><![CDATA[create table if not exists company(
+id serial primary key,
+name_company varchar(64) not null unique 
+);
+create table if not exists company_loclas(
+company_id int references company(id),
+lang varchar(2),
+description varchar(255) not null,
+primary key (company_id, lang)
+);
+create table if not exists users(
+    id bigserial primary key,
+    username varchar(64) not null unique,
+    birthday_date date,
+    firstname varchar(64),
+    lastname varchar(64),
+    role varchar(32),
+    company_id int references company(id)
+);
+create table if not exists chat(
+    id bigserial primary key,
+    chat_name varchar(128) not null
+);
+create table if not exists users_chat(
+id bigserial primary key,
+user_id bigint not null references users(id),
+chat_id bigint not null references chat(id),
+unique (user_id, chat_id)
+);
+
+create table if not exists payment(
+    id bigserial primary key,
+    amount int not null,
+    receiver_id bigint not null references users(id)   
+);]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="8dd2ed96-24eb-494a-9eb1-d2651a305688" object-ref="consoles/init_tables" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="8dd2ed96-24eb-494a-9eb1-d2651a305688" />
@@ -37,6 +105,7 @@
     </filter-actions>
     <filter-actions connection-id="8dd2ed96-24eb-494a-9eb1-d2651a305688" dataset="public.users_chat" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="8dd2ed96-24eb-494a-9eb1-d2651a305688" dataset="public.company" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="8dd2ed96-24eb-494a-9eb1-d2651a305688" dataset="public.company_loclas" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="8dd2ed96-24eb-494a-9eb1-d2651a305688" dataset="public.payment" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
@@ -50,7 +119,7 @@
     <connections>
       <connection id="8dd2ed96-24eb-494a-9eb1-d2651a305688" active="true" signed="true">
         <database>
-          <name value="Testdb" />
+          <name value="springdata" />
           <description value="" />
           <database-type value="POSTGRES" />
           <config-type value="BASIC" />
@@ -61,7 +130,7 @@
           <url-type value="DATABASE" />
           <host value="localhost" />
           <port value="5432" />
-          <database value="postgres" />
+          <database value="springdata" />
           <tns-folder value="" />
           <tns-profile value="" />
           <type value="USER_PASSWORD" />
@@ -112,6 +181,7 @@
           <debugger-type value="ASK" />
         </debugger>
         <object-filters hide-empty-schemas="false" hide-pseudo-columns="false" hide-audit-columns="false">
+          <object-filters />
           <object-type-filter use-master-settings="true">
             <object-type name="SCHEMA" enabled="true" />
             <object-type name="USER" enabled="true" />
@@ -139,7 +209,6 @@
             <object-type name="CLUSTER" enabled="true" />
             <object-type name="DBLINK" enabled="true" />
           </object-type-filter>
-          <object-name-filters />
         </object-filters>
       </connection>
     </connections>
@@ -537,5 +606,9 @@
         </visibility-settings>
       </environment>
     </general-settings>
+  </component>
+  <component name="DBNavigator.Project.StatementExecutionManager">
+    <execution-variables />
+    <execution-variable-types />
   </component>
 </project>

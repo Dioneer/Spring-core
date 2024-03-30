@@ -14,9 +14,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.test.context.ContextConfiguration;
 
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -26,7 +26,7 @@ import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 public class CompanyServiceTest {
-    private static final Long COMPANY_ID = 1L;
+    private static final Integer COMPANY_ID = 1;
     private static final String COMPANY_NAME = "Onion";
     @Mock
     private CompanyRepository companyRepository;
@@ -39,8 +39,10 @@ public class CompanyServiceTest {
 
     @Test
     void findUserById() {
-        Mockito.doReturn(Optional.of(new Company(COMPANY_ID, COMPANY_NAME)))
+        Mockito.doReturn(Optional.of(new Company(COMPANY_ID, COMPANY_NAME, Collections.emptyMap())))
                 .when(companyRepository).findById(COMPANY_ID);
+        Mockito.doReturn(new CompanyDTO(COMPANY_ID, COMPANY_NAME))
+                .when(companyMapper).fromTo(new Company(COMPANY_ID, COMPANY_NAME, Collections.emptyMap()));
         try {
             Optional<CompanyDTO> actualResult = companyService.findUserById(COMPANY_ID);
             System.out.println(actualResult);

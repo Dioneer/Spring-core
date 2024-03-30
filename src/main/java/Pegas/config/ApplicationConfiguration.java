@@ -22,27 +22,27 @@ public class ApplicationConfiguration {
 //      return new ConnectionPool(username, password,
 //              poolSize,url);
 //    }
-    @Bean("connectionPool")
-    public ConnectionPool connectionPool() {
-        return new ConnectionPool("postgres", "123456",
-                12,"jdbc:postgresql://localhost:5432/postgres");
-    }
+//    @Bean("connectionPool")
+//    public ConnectionPool connectionPool() {
+//        return new ConnectionPool("postgres", "123456",
+//                12,"jdbc:postgresql://localhost:5432/springdata");
+//    }
+//
+//    @Bean("connectionPool1")
+//    @Profile("dev")
+//    public ConnectionPool connectionPool1(){
+//        return new ConnectionPool("mysql", "123456",
+//                12,"jdbc:postgresql://localhost:5432/springdata");
+//    }
 
-    @Bean("connectionPool1")
-    @Profile("dev")
-    public ConnectionPool connectionPool1(){
-        return new ConnectionPool("mysql", "123456",
-                12,"jdbc:postgresql://localhost:5432/postgres");
-    }
-
-    @Bean
-    public UserRepository userRepository(){
-        return new UserRepository(connectionPool());
-    }
-    @Bean
-    public CompanyRepository companyRepository(){
-        return new CompanyRepository(connectionPool());
-    }
+//    @Bean
+//    public UserRepository userRepository(){
+//        return new UserRepository();
+//    }
+//    @Bean
+//    public CompanyRepository companyRepository(){
+//        return new CompanyRepository();
+//    }
 
     @PostConstruct
     private void init(){

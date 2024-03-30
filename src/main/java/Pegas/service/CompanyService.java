@@ -11,18 +11,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
 import java.util.Optional;
 
 @RequiredArgsConstructor
-@ToString
 @Service
+@Transactional
 public class CompanyService {
     private final CompanyMapper companyMapper;
     private final ApplicationEventPublisher applicationEventPublisher;
     private final CompanyRepository companyRepository;
-    public Optional<CompanyDTO> findUserById(Long id) throws SQLException, InterruptedException {
+
+    public Optional<CompanyDTO> findUserById(Integer id) throws SQLException, InterruptedException {
         return companyRepository.findById(id).map(i->{
             applicationEventPublisher.publishEvent(new Entity(i, AccessType.RAED));
             return companyMapper.fromTo(i);
