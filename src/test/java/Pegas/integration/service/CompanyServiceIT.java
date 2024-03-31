@@ -1,19 +1,15 @@
-package Pegas.integration;
+package Pegas.integration.service;
 
 import Pegas.ApplicationRunner;
-import Pegas.config.DatabaseProperties;
 import Pegas.dto.CompanyDTO;
-import Pegas.mapper.CompanyMapper;
 import Pegas.service.CompanyService;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestConstructor;
 
 import java.sql.SQLException;
-import java.util.Collections;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

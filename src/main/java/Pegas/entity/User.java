@@ -11,6 +11,7 @@ import java.util.List;
 @Data
 @Builder
 @Entity
+@ToString(exclude = {"company", "userChats"})
 @Table(name="users")
 public class User implements BaseEntity<Long>{
     @Id
@@ -22,7 +23,6 @@ public class User implements BaseEntity<Long>{
     private String lastname;
     @Convert(converter = BirthdayConvert.class)
     @Column(name = "birthday_date")
-    @NonNull
     private Birthday birthday;
     @Enumerated(EnumType.STRING)
     private Role role;

@@ -1,24 +1,31 @@
 package Pegas.dao;
 
+import Pegas.dto.IPersonalInfo;
+import Pegas.dto.PersonalInfo;
 import Pegas.entity.*;
-import Pegas.pool.ConnectionPool;
-import Pegas.utils.Connections;
-import jakarta.annotation.PostConstruct;
-import jakarta.annotation.PreDestroy;
-import lombok.*;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 
-import java.sql.*;
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
-@AllArgsConstructor
-@Repository
-public class UserRepository {
-    public Optional<User> findById(Long id){
-        System.out.println("Find user");
-        return Optional.of(new User(id,null,null,null, null, null,null, null));
-    }
+public interface UserRepository extends JpaRepository<User, Long> {
+    @Query("select u from User u where u.firstname like %:firstname% and u.lastname like %:lastname%")
+    List<User> findAllByFirstnameContainingAndLastnameContaining(String firstname, String lastname);
+
+    @Modifying(clearAutomatically = true)
+    @Query("update User u set u.role = :role where u.id in (:ids)")
+    int updateRole(Role role, Long... ids);
+
+    @Query(value = "select  u.firstname, u.lastname, u.birthday_date from users u where company_id = :companyId", nativeQuery = true)
+    List<IPersonalInfo> findAllByCompanyId(Integer companyId);
+
+    Optional<User> findFirstByCompanyIsNotNullOrderByIdDesc();
+
+    List<User> findFirst3By(Sort sort);
+
+    List<User> findAllBy(Pageable pageable);
 }

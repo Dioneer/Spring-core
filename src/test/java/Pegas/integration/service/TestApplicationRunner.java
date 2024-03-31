@@ -1,4 +1,4 @@
-package Pegas.integration;
+package Pegas.integration.service;
 
 import Pegas.pool.ConnectionPool;
 import org.springframework.boot.test.context.TestConfiguration;

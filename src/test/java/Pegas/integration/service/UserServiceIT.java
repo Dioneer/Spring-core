@@ -1,12 +1,10 @@
-package Pegas.integration;
+package Pegas.integration.service;
 
 import Pegas.ApplicationRunner;
-import Pegas.pool.ConnectionPool;
 import Pegas.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestConstructor;
 

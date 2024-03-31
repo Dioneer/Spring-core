@@ -6,6 +6,11 @@ import lombok.*;
 import java.util.HashMap;
 import java.util.Map;
 
+//= lower(:nameCompany) вот это должно совпадать с именем переменной в функции CompanyRepository
+@NamedQuery(
+        name="Company.findByNameCompany",
+        query = "select c from Company c where lower(c.nameCompany) = lower(:nameCompany)"
+)
 @AllArgsConstructor
 @Data
 @Builder
