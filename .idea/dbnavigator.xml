@@ -90,9 +90,7 @@ create table if not exists payment(
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="8dd2ed96-24eb-494a-9eb1-d2651a305688" object-ref="schemas/public/tables/company" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="8dd2ed96-24eb-494a-9eb1-d2651a305688" />
