@@ -1,61 +1,54 @@
-2024-04-02T21:12:33.066+03:00  INFO 3984 --- [Test worker] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T21:12:34.726+03:00  WARN 3984 --- [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T21:12:35.811+03:00  INFO 3984 --- [Test worker] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T21:12:35.911+03:00  WARN 3984 --- [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T21:13:03.730+03:00  INFO 17916 --- [Test worker] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T21:13:04.775+03:00  WARN 17916 --- [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T21:13:05.658+03:00  INFO 17916 --- [Test worker] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T21:13:05.802+03:00  WARN 17916 --- [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T22:14:56.101+03:00  INFO 2472 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T22:14:56.623+03:00  WARN 2472 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T22:21:35.047+03:00  INFO 8520 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T22:21:35.556+03:00  WARN 8520 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T22:23:14.584+03:00  INFO 16692 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T22:23:15.076+03:00  WARN 16692 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T22:25:34.387+03:00  INFO 9412 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T22:25:34.781+03:00  WARN 9412 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T22:25:37.070+03:00  WARN 9412 --- [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'age' for method parameter type Integer is not present]
-2024-04-02T22:25:40.962+03:00  WARN 9412 --- [http-nio-8080-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'age' for method parameter type Integer is not present]
-2024-04-02T22:31:03.294+03:00  INFO 11688 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T22:31:03.680+03:00  WARN 11688 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T22:31:33.573+03:00  INFO 10272 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T22:31:33.968+03:00  WARN 10272 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T22:54:22.230+03:00  INFO 16492 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T22:54:22.586+03:00  WARN 16492 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T23:01:32.464+03:00  INFO 10900 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T23:01:32.833+03:00  WARN 10900 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T23:03:37.735+03:00  WARN 10900 --- [http-nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.ServletRequestBindingException: Missing session attribute 'user' of type UserReadDTO]
-2024-04-02T23:15:22.687+03:00  INFO 11748 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T23:15:23.141+03:00  WARN 11748 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T23:18:48.086+03:00  INFO 4220 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T23:18:48.503+03:00  WARN 4220 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T23:21:12.567+03:00  INFO 13640 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T23:21:12.935+03:00  WARN 13640 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T23:21:46.365+03:00  INFO 17884 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T23:21:46.798+03:00  WARN 17884 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T23:24:01.662+03:00  INFO 17488 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T23:24:02.094+03:00  WARN 17488 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T23:24:46.406+03:00  INFO 13608 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T23:24:46.800+03:00  WARN 13608 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T23:39:14.616+03:00  INFO 12736 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T23:39:15.101+03:00  WARN 12736 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T23:39:53.181+03:00  INFO 3160 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T23:39:53.552+03:00  WARN 3160 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T23:41:22.446+03:00  WARN 3160 --- [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.ServletRequestBindingException: Missing session attribute 'user' of type UserReadDTO]
-2024-04-02T23:41:26.184+03:00  WARN 3160 --- [http-nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.ServletRequestBindingException: Missing session attribute 'user' of type UserReadDTO]
-2024-04-02T23:42:06.145+03:00  INFO 15852 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T23:42:06.542+03:00  WARN 15852 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T23:43:29.448+03:00  INFO 17360 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T23:43:29.876+03:00  WARN 17360 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T23:44:18.795+03:00  INFO 5368 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T23:44:19.203+03:00  WARN 5368 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T23:44:30.509+03:00  INFO 3152 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T23:44:30.912+03:00  WARN 3152 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T23:48:43.866+03:00  INFO 7664 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T23:48:44.389+03:00  WARN 7664 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T23:51:26.783+03:00  INFO 7476 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T23:51:27.164+03:00  WARN 7476 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T23:54:43.204+03:00  INFO 1516 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T23:54:43.634+03:00  WARN 1516 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T23:56:21.331+03:00  INFO 4432 --- [main] Pegas.pool.ConnectionPool                : init connection pool
-2024-04-02T23:56:21.710+03:00  WARN 4432 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-04T00:47:38.412+03:00  INFO 3168 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-04T00:47:39.423+03:00  WARN 3168 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController' defined in file [D:\backup\4\Gradle\build\classes\java\main\Pegas\http\controller\UserController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userService' defined in file [D:\backup\4\Gradle\build\classes\java\main\Pegas\service\UserService.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'userReadMapper' defined in file [D:\backup\4\Gradle\build\classes\java\main\Pegas\mapper\UserReadMapper.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'Pegas.mapper.CompanyReadMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-04-04T00:47:39.460+03:00 ERROR 3168 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in Pegas.mapper.UserReadMapper required a bean of type 'Pegas.mapper.CompanyReadMapper' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'Pegas.mapper.CompanyReadMapper' in your configuration.
+
+2024-04-04T00:49:40.627+03:00  INFO 7080 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-04T00:49:41.447+03:00  WARN 7080 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController' defined in file [D:\backup\4\Gradle\build\classes\java\main\Pegas\http\controller\UserController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userService' defined in file [D:\backup\4\Gradle\build\classes\java\main\Pegas\service\UserService.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'userReadMapper' defined in file [D:\backup\4\Gradle\build\classes\java\main\Pegas\mapper\UserReadMapper.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'Pegas.mapper.CompanyReadMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-04-04T00:49:41.481+03:00 ERROR 7080 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in Pegas.mapper.UserReadMapper required a bean of type 'Pegas.mapper.CompanyReadMapper' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'Pegas.mapper.CompanyReadMapper' in your configuration.
+
+2024-04-04T00:52:29.155+03:00  INFO 16628 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-04T00:52:30.181+03:00  WARN 16628 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-04T00:57:39.746+03:00  INFO 8776 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-04T00:57:40.878+03:00  WARN 8776 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-04T01:05:00.712+03:00  INFO 12860 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-04T01:05:01.710+03:00  WARN 12860 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-04T01:21:38.406+03:00  INFO 15180 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-04T01:21:39.493+03:00  WARN 15180 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-04T01:23:23.834+03:00  INFO 11032 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-04T01:23:24.838+03:00  WARN 11032 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-04T01:23:25.222+03:00  WARN 11032 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 23503
+2024-04-04T01:23:25.224+03:00 ERROR 11032 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : ОШИБКА: UPDATE или DELETE в таблице "users" нарушает ограничение внешнего ключа "users_chat_user_id_fkey" таблицы "users_chat"
+  Подробности: На ключ (id)=(2) всё ещё есть ссылки в таблице "users_chat".
+2024-04-04T01:27:54.239+03:00  INFO 13160 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-04T01:28:26.810+03:00  INFO 1452 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-04T01:28:28.250+03:00  WARN 1452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 25006
+2024-04-04T01:28:28.251+03:00 ERROR 1452 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : ОШИБКА: в транзакции в режиме "только чтение" нельзя выполнить INSERT
+2024-04-04T01:40:41.817+03:00  INFO 11256 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-04T01:45:35.492+03:00  INFO 1544 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-04T01:45:36.839+03:00  WARN 1544 --- [main] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public java.lang.String Pegas.http.controller.UserController.create(Pegas.dto.UserCreateEditDto): [Field error in object 'userCreateEditDto' on field 'birthday': rejected value [2000-01-01]; codes [typeMismatch.userCreateEditDto.birthday,typeMismatch.birthday,typeMismatch.Pegas.entity.Birthday,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [userCreateEditDto.birthday,birthday]; arguments []; default message [birthday]]; default message [Failed to convert value of type 'java.lang.String' to required type 'Pegas.entity.Birthday'; Cannot convert value of type 'java.lang.String' to required type 'Pegas.entity.Birthday' for property 'birthday': no matching editors or conversion strategy found]] ]
