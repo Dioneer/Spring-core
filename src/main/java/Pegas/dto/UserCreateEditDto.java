@@ -5,12 +5,11 @@ import Pegas.entity.Role;
 import lombok.Value;
 
 @Value
-public class UserReadDTO {
-    Long id;
+public class UserCreateEditDto {
     String username;
     Birthday birthday;
     String firstname;
     String lastname;
     Role role;
-    CompanyDTO company;
+    Integer companyId;
 }
