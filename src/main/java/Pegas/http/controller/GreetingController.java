@@ -21,6 +21,12 @@ public class GreetingController {
         return Arrays.asList(Role.values());
     }
 
+    @GetMapping("/hello")
+    public String hello(Model model, UserReadDTO userReadDTO){
+     model.addAttribute("user",userReadDTO);
+     return "greeting/hello";
+    }
+
     @GetMapping("/hello/{id}")
     public String hello(CompanyRepository companyRepository, HttpServletRequest request,
                               @RequestParam("age") Integer age,

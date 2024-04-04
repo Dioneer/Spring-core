@@ -2,6 +2,8 @@ package Pegas.http.controller;
 
 import Pegas.dto.UserCreateEditDto;
 import Pegas.dto.UserReadDTO;
+import Pegas.entity.Role;
+import Pegas.service.CompanyService;
 import Pegas.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,6 +19,7 @@ import java.sql.SQLException;
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
+    private final CompanyService companyService;
 
     @GetMapping
     public String findAll(Model model){
@@ -28,8 +31,10 @@ public class UserController {
         model.addAttribute("users", userService.findById(id));
         return userService.findById(id)
                 .map(user->{
+                    model.addAttribute("roles", Role.values());
                     model.addAttribute("user", user);
-                   return "user/users";
+                    model.addAttribute("companies",companyService.findAll());
+                   return "user/user";
                 }).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
     @PostMapping
@@ -49,6 +54,6 @@ public class UserController {
        if(!userService.delete(id)){
            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
-        return "redirect:/users ";
+        return "redirect:/users";
     }
 }

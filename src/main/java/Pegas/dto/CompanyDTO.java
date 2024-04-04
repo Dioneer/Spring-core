@@ -1,16 +1,10 @@
 package Pegas.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
+@Value
 public class CompanyDTO{
-    private Integer id;
-    private String companyname;
+    Integer id;
+    String companyname;
 }
