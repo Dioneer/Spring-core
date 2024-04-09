@@ -3,10 +3,16 @@ plugins {
     id 'io.freefair.lombok' version '8.0.1'
     id 'org.springframework.boot' version '3.2.4'
     id 'io.spring.dependency-management' version '1.1.4'
+    id "com.ewerk.gradle.plugins.querydsl" version '1.0.10'
 }
+
 wrapper{
     gradleVersion("8.6")
 }
+configurations {
+    querydsl.extendsFrom implementation, compileOnly, runtimeOnly
+}
+
 group = 'Pegas'
 version = '1.0-SNAPSHOT'
 sourceCompatibility = '17'
@@ -37,6 +43,20 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'com.querydsl:querydsl-jpa:5.1.0:jakarta'
+    annotationProcessor 'com.querydsl:querydsl-apt'
+}
+
+querydsl {
+    jpa=true
+    library = 'com.querydsl:querydsl-apt:5.1.0:jakarta'
+    querydslSourcesDir = "$buildDir/generated/sources/annotationProcessor/java/main"
+}
+
+initQuerydslSourcesDir.dependsOn clean
+
+compileQuerydsl{
+    options.annotationProcessorPath = configurations.querydsl
 }
 
 test{

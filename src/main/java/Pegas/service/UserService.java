@@ -1,12 +1,13 @@
 package Pegas.service;
 
+import Pegas.dto.FilterDTO;
 import Pegas.dto.UserCreateEditDto;
 import Pegas.dao.UserRepository;
+import Pegas.dto.UserFilter;
 import Pegas.dto.UserReadDTO;
 import Pegas.mapper.UserCreateEditMapper;
 import Pegas.mapper.UserReadMapper;
 import lombok.RequiredArgsConstructor;
-import lombok.ToString;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,6 +27,11 @@ public class UserService {
                 .map(userReadMapper::fromTo)
                 .toList();
     }
+    public List<UserReadDTO> findAll(FilterDTO filter){
+        return userRepository.findAllByFilter(filter).stream()
+                .map(userReadMapper::fromTo)
+                .toList();
+    }
     public Optional<UserReadDTO> findById(Long id) {
         return userRepository.findById(id).map(userReadMapper::fromTo);
     }
@@ -38,6 +44,7 @@ public class UserService {
     }
     @Transactional
     public Optional<UserReadDTO> update(Long id, UserCreateEditDto user) {
+        System.out.println(user);
         return userRepository.findById(id)
                 .map(i->userCreateEditMapper.fromTo(user,i))
                 .map(userRepository::saveAndFlush)

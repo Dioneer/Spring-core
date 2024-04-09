@@ -2,7 +2,6 @@ package Pegas.service;
 
 import Pegas.dao.CompanyRepository;
 import Pegas.dto.CompanyDTO;;
-import Pegas.dto.UserReadDTO;
 import Pegas.listener.AccessType;
 import Pegas.listener.Entity;
 import Pegas.mapper.CompanyMapper;

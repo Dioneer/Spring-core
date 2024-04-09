@@ -1,7 +1,9 @@
 package Pegas.dao;
 
+import Pegas.dto.FilterDTO;
 import Pegas.dto.IPersonalInfo;
 import Pegas.dto.PersonalInfo;
+import Pegas.dto.UserFilter;
 import Pegas.entity.*;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -9,10 +11,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long>, FilterUserRepository {
     @Query("select u from User u where u.firstname like %:firstname% and u.lastname like %:lastname%")
     List<User> findAllByFirstnameContainingAndLastnameContaining(String firstname, String lastname);
 
@@ -28,4 +31,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findFirst3By(Sort sort);
 
     List<User> findAllBy(Pageable pageable);
+
+    List<User> findAllByFilter(FilterDTO filter);
 }

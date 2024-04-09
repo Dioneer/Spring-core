@@ -28,7 +28,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @Transactional
 @TestConstructor(autowireMode = TestConstructor.AutowireMode.ALL)
 public class UserRepositoryTest {
-    private final EntityManager entityManager;
     private final UserRepository userRepository;
 
     @Test

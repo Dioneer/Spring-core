@@ -1,6 +1,5 @@
 package Pegas.unit;
 
-import Pegas.ApplicationRunner;
 import Pegas.dao.CompanyRepository;
 import Pegas.dto.CompanyDTO;
 import Pegas.entity.Company;
@@ -45,7 +44,6 @@ public class CompanyServiceTest {
                 .when(companyMapper).fromTo(new Company(COMPANY_ID, COMPANY_NAME, Collections.emptyMap()));
         try {
             Optional<CompanyDTO> actualResult = companyService.findUserById(COMPANY_ID);
-            System.out.println(actualResult);
             assertTrue(actualResult.isPresent());
             var expectedResult = new CompanyDTO(COMPANY_ID, COMPANY_NAME);
             actualResult.ifPresent(actual-> assertEquals(expectedResult, actual));
