@@ -9,7 +9,7 @@ import java.util.Optional;
 public class BirthdayConvert implements AttributeConverter<Birthday, Date> {
     @Override
     public Date convertToDatabaseColumn(Birthday birthday) {
-        return Optional.ofNullable(birthday).map(Birthday::birthday).map(Date::valueOf).orElse(null);
+        return Optional.ofNullable(birthday).map(Birthday::getBirthday).map(Date::valueOf).orElse(null);
     }
 
     @Override

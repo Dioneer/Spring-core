@@ -1,18 +1,22 @@
 package Pegas.service;
 
-import Pegas.dto.FilterDTO;
-import Pegas.dto.UserCreateEditDto;
+import Pegas.dto.*;
 import Pegas.dao.UserRepository;
-import Pegas.dto.UserFilter;
-import Pegas.dto.UserReadDTO;
+import Pegas.entity.Birthday;
 import Pegas.mapper.UserCreateEditMapper;
 import Pegas.mapper.UserReadMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
+
+import static Pegas.entity.QUser.user;
 
 @RequiredArgsConstructor
 @Service
@@ -26,6 +30,16 @@ public class UserService {
         return userRepository.findAll().stream()
                 .map(userReadMapper::fromTo)
                 .toList();
+    }
+    public Page<UserReadDTO> findAll(FilterDTO filter, Pageable pageable){
+        var predicate = QPredicates.builder()
+                .add(filter.getFirstName(), user.firstname::containsIgnoreCase)
+                .add(filter.getLastname(), user.lastname::containsIgnoreCase)
+                .add(Optional.ofNullable(filter.getBirthday()).orElse(new Birthday(LocalDate.now())).getBirthday().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")), user.lastname::containsIgnoreCase)
+                .build();
+
+        return userRepository.findAll(predicate, pageable)
+                .map(userReadMapper::fromTo);
     }
     public List<UserReadDTO> findAll(FilterDTO filter){
         return userRepository.findAllByFilter(filter).stream()

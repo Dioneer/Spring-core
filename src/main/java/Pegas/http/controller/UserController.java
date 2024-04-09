@@ -1,17 +1,18 @@
 package Pegas.http.controller;
 
-import Pegas.dto.FilterDTO;
-import Pegas.dto.UserCreateEditDto;
-import Pegas.dto.UserFilter;
-import Pegas.dto.UserReadDTO;
+import Pegas.dto.*;
 import Pegas.entity.Birthday;
 import Pegas.entity.Role;
 import Pegas.service.CompanyService;
 import Pegas.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -29,7 +30,7 @@ public class UserController {
     private final FilterDTO filterDTO;
 
     @GetMapping
-    public String findAll(Model model, UserFilter filter){
+    public String findAll(Model model, UserFilter filter, Pageable pageable){
 //        model.addAttribute("users", userService.findAll());
         if(filter.getBirthday()==null || filter.getBirthday().isEmpty()) {
             filterDTO.setFirstName(filter.getFirstName());
@@ -40,7 +41,9 @@ public class UserController {
             filterDTO.setLastname(filter.getLastname());
             filterDTO.setBirthday(new Birthday(LocalDate.parse(filter.getBirthday(), DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH))));
         }
-        model.addAttribute("users", userService.findAll(filterDTO));
+        Page<UserReadDTO> page = userService.findAll(filterDTO, pageable);
+        model.addAttribute("users", PageResponse.of(page));
+        model.addAttribute("filter", filter);
         return "user/users";
     }
 
@@ -64,18 +67,19 @@ public class UserController {
                 }).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
     @PostMapping
-    public String create(@ModelAttribute UserCreateEditDto user, RedirectAttributes redirectAttributes){
-        if(true) {
+    public String create(@ModelAttribute @Valid UserCreateEditDto user, BindingResult bindingResult, RedirectAttributes redirectAttributes){
+        if(bindingResult.hasErrors()) {
 //            redirectAttribute.addAttribute("username", user.getUsername());
 //            redirectAttribute.addFlashAttribute("firstname", user.getFirstname());
             redirectAttributes.addFlashAttribute("user", user);
+            redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
             return "redirect:/users/registration";
         }
         UserReadDTO userReadDTO = userService.create(user);
         return "redirect:/users/" + userReadDTO.getId();
     }
     @PostMapping("/{id}/update")
-    public String update(@PathVariable("id") Long id, @ModelAttribute UserCreateEditDto user){
+    public String update(@PathVariable("id") Long id, @ModelAttribute @Valid UserCreateEditDto user){
         userService.update(id, user);
         return userService.update(id, user)
                 .map(it-> "redirect:/users/{id}")

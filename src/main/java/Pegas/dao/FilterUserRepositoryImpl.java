@@ -27,7 +27,7 @@ public class FilterUserRepositoryImpl implements FilterUserRepository{
         var predicate = QPredicates.builder()
                 .add(filter.getFirstName(), user.firstname::containsIgnoreCase)
                 .add(filter.getLastname(), user.lastname::containsIgnoreCase)
-                .add(filter.getBirthday().birthday().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")), user.lastname::containsIgnoreCase)
+                .add(filter.getBirthday().getBirthday().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")), user.lastname::containsIgnoreCase)
                 .build();
         return new JPAQuery<User>(entityManager)
                 .select(user)
