@@ -34,8 +34,10 @@ public class GreetingController {
                               @CookieValue ("JSESSIONID") String jsessionId,
                               Model model,
                               UserReadDTO userReadDTO){
+        Integer age1 = age;
+        model.addAttribute("att", age1);
         model.addAttribute("user", userReadDTO);
-        return "greeting/hello";
+        return "greeting/hello1";
     }
     @GetMapping("/bye")
     public String bye(@SessionAttribute("user") UserReadDTO user){
