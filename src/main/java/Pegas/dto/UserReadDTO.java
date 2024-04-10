@@ -4,11 +4,13 @@ import Pegas.entity.Birthday;
 import Pegas.entity.Role;
 import lombok.Value;
 
+import java.time.LocalDate;
+
 @Value
 public class UserReadDTO {
     Long id;
     String username;
-    Birthday birthday;
+    LocalDate birthday;
     String firstname;
     String lastname;
     Role role;

@@ -6,6 +6,7 @@ import Pegas.dto.PersonalInfo;
 import Pegas.dto.UserFilter;
 import Pegas.entity.*;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -31,7 +32,7 @@ public interface UserRepository extends JpaRepository<User, Long>, FilterUserRep
 
     List<User> findFirst3By(Sort sort);
 
-    List<User> findAllBy(Pageable pageable);
+    Slice<User> findAllBy(Pageable pageable);
 
     List<User> findAllByFilter(FilterDTO filter);
 }

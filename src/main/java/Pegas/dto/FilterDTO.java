@@ -1,13 +1,12 @@
 package Pegas.dto;
 
-import Pegas.entity.Birthday;
 import lombok.Data;
-import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Data
-@Component
 public class FilterDTO {
     String firstName;
     String lastname;
-    Birthday birthday;
+    LocalDate birthday;
 }

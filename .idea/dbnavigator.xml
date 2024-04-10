@@ -91,7 +91,8 @@ create table if not exists payment(
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
-      <object connection-id="8dd2ed96-24eb-494a-9eb1-d2651a305688" object-ref="schemas/public/tables/users" />
+      <object connection-id="8dd2ed96-24eb-494a-9eb1-d2651a305688" object-ref="schemas/public/tables/company" />
+      <object connection-id="8dd2ed96-24eb-494a-9eb1-d2651a305688" object-ref="schemas/public/tables/company_loclas" />
     </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">

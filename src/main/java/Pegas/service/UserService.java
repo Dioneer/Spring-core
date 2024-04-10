@@ -35,7 +35,7 @@ public class UserService {
         var predicate = QPredicates.builder()
                 .add(filter.getFirstName(), user.firstname::containsIgnoreCase)
                 .add(filter.getLastname(), user.lastname::containsIgnoreCase)
-                .add(Optional.ofNullable(filter.getBirthday()).orElse(new Birthday(LocalDate.now())).getBirthday().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")), user.lastname::containsIgnoreCase)
+                .add(filter.getBirthday(), user.birthday::before)
                 .build();
 
         return userRepository.findAll(predicate, pageable)

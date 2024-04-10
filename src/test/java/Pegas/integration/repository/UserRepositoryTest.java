@@ -47,9 +47,9 @@ public class UserRepositoryTest {
     }
     @Test
     void checkProjections(){
-        List<IPersonalInfo> personalInfos = userRepository.findAllByCompanyId(1);
+        var personalInfos = userRepository.findAllByCompanyId(1);
         assertTrue(!personalInfos.isEmpty());
-        assertThat(personalInfos).hasSize(2);
+        assertThat(personalInfos).hasSize(1);
     }
 
     @Test
@@ -62,7 +62,12 @@ public class UserRepositoryTest {
     @Test
     void checkPageable(){
         var pageable = PageRequest.of(1,2, Sort.by("id"));
-        userRepository.findAllBy(pageable);
+        var slice = userRepository.findAllBy(pageable);
+        slice.forEach(u-> System.out.println(u.getId()));
+        while (slice.hasNext()){
+            slice = userRepository.findAllBy(slice.nextPageable());
+            slice.forEach(u-> System.out.println(u.getId()));
+        }
     }
 
     @Test

@@ -1,9 +1,9 @@
 package Pegas.dto;
 
-import Pegas.entity.Birthday;
+import java.time.LocalDate;
 
 public interface IPersonalInfo {
     String getFirstName();
     String getLastname();
-    Birthday birthday();
+    LocalDate birthday();
 }

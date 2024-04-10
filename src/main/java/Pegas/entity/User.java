@@ -1,8 +1,9 @@
 package Pegas.entity;
 
-import Pegas.convert.BirthdayConvert;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,15 +22,14 @@ public class User implements BaseEntity<Long>{
     private String username;
     private String firstname;
     private String lastname;
-    @Convert(converter = BirthdayConvert.class)
     @Column(name = "birthday_date")
-    private Birthday birthday;
+    private LocalDate birthday;
     @Enumerated(EnumType.STRING)
     private Role role;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
     private Company company;
     @Builder.Default
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<UserChat> userChats = new ArrayList<>();
 }

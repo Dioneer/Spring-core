@@ -45,7 +45,7 @@ public class UserServiceIT {
     void create(){
         UserCreateEditDto user = new UserCreateEditDto(
                 "test@test3.ru",
-                new Birthday(LocalDate.now()),
+                LocalDate.of(2011,02,02),
                 "test",
         "test",
                 Role.ADMIN,
@@ -63,7 +63,7 @@ public class UserServiceIT {
     void update(){
         UserCreateEditDto user = new UserCreateEditDto(
                 "test@test1.ru",
-                new Birthday(LocalDate.now()),
+                LocalDate.of(2022,05,05),
                 "test1",
                 "test1",
                 Role.ADMIN,

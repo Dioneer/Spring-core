@@ -27,23 +27,13 @@ import java.util.Locale;
 public class UserController {
     private final UserService userService;
     private final CompanyService companyService;
-    private final FilterDTO filterDTO;
 
     @GetMapping
-    public String findAll(Model model, UserFilter filter, Pageable pageable){
+    public String findAll(Model model, FilterDTO filterDTO, Pageable pageable){
 //        model.addAttribute("users", userService.findAll());
-        if(filter.getBirthday()==null || filter.getBirthday().isEmpty()) {
-            filterDTO.setFirstName(filter.getFirstName());
-            filterDTO.setLastname(filter.getLastname());
-            filterDTO.setBirthday(null);
-        }else {
-            filterDTO.setFirstName(filter.getFirstName());
-            filterDTO.setLastname(filter.getLastname());
-            filterDTO.setBirthday(new Birthday(LocalDate.parse(filter.getBirthday(), DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH))));
-        }
         Page<UserReadDTO> page = userService.findAll(filterDTO, pageable);
         model.addAttribute("users", PageResponse.of(page));
-        model.addAttribute("filter", filter);
+        model.addAttribute("filter", filterDTO);
         return "user/users";
     }
 

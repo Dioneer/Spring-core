@@ -1,17 +1,19 @@
 package Pegas.service;
 
 import Pegas.dao.PaymentRepository;
+import Pegas.entity.Payment;
 import lombok.RequiredArgsConstructor;
-import lombok.ToString;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
-@ToString
 @Service
 public class PaymentService {
     private final PaymentRepository paymentRepository;
 
-    public void show(){
-        System.out.println(paymentRepository.toString());
+    public List<Integer> findByReceiverId(Long id){
+        List<Integer>arr = paymentRepository.findByReceiverId(id);
+        return arr;
     }
 }

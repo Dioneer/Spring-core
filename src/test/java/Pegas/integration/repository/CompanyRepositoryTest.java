@@ -52,11 +52,11 @@ public class CompanyRepositoryTest {
     }
     @Test
     void delete(){
-        Optional<Company> company = companyRepository.findById(5);
+        Optional<Company> company = companyRepository.findById(13);
         assertTrue(company.isPresent());
         company.ifPresent(companyRepository::delete);
         entityManager.flush();
-        assertTrue(companyRepository.findById(5).isEmpty());
+        assertTrue(companyRepository.findById(13).isEmpty());
     }
     @Test
     void checkByQueries(){

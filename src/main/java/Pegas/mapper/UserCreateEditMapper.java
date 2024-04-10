@@ -22,7 +22,7 @@ public class UserCreateEditMapper implements Mapper<UserCreateEditDto, User>{
         to.setUsername(from.getUsername());
         to.setFirstname(from.getFirstname());
         to.setLastname(from.getLastname());
-        to.setBirthday(from.getBirthday().isEmpty() ? null : new Birthday(LocalDate.parse(from.getBirthday(), DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH))));
+        to.setBirthday(from.getBirthday());
         to.setRole(from.getRole());
         to.setCompany(getCompany(from.getCompanyId()));
         return to;
@@ -34,7 +34,7 @@ public class UserCreateEditMapper implements Mapper<UserCreateEditDto, User>{
                 .username(userC.getUsername())
                 .firstname(userC.getFirstname())
                 .lastname(userC.getLastname())
-                .birthday(userC.getBirthday().isEmpty() ? null : new Birthday(LocalDate.parse(userC.getBirthday(), DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH))))
+                .birthday(userC.getBirthday())
                 .role(userC.getRole())
                 .company(getCompany(userC.getCompanyId()))
                 .build();
