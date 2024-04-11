@@ -21,13 +21,13 @@ public class FilterUserRepositoryImpl implements FilterUserRepository{
     @Override
     public List<User> findAllByFilter(FilterDTO filter) {
         var predicate = QPredicates.builder()
-                .add(filter.getFirstname(), user.firstname::containsIgnoreCase)
-                .add(filter.getLastname(), user.lastname::containsIgnoreCase)
-                .add(filter.getBirthday(), user.birthday::before)
+//                .add(filter.getFirstname(), user.firstname::containsIgnoreCase)
+//                .add(filter.getLastname(), user.lastname::containsIgnoreCase)
+//                .add(filter.getBirthday(), user.birthday::before)
                 .build();
         return new JPAQuery<User>(entityManager)
-                .select(user)
-                .from(user)
+//                .select(user)
+//                .from(user)
                 .where(predicate)
                 .fetch();
     }

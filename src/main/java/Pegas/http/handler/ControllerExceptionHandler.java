@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @Slf4j
-@ControllerAdvice(basePackages = "Pegas.http.rest")
+@ControllerAdvice(basePackages = "Pegas.http.controller")
 public class ControllerExceptionHandler {
     @ExceptionHandler(Exception.class)
     public String handlerException(Exception exception){

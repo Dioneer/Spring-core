@@ -32,4 +32,5 @@ public class User implements BaseEntity<Long>{
     @Builder.Default
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<UserChat> userChats = new ArrayList<>();
+    private String image;
 }

@@ -46,3 +46,6 @@ spring:
       format_sql: true
       hbm2ddl.auto: validate
 
+app:
+  image:
+    bucket: D:\backup\4\Gradle\images

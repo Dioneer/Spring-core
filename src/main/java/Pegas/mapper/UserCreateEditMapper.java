@@ -2,16 +2,14 @@ package Pegas.mapper;
 
 import Pegas.dao.CompanyRepository;
 import Pegas.dto.UserCreateEditDto;
-import Pegas.entity.Birthday;
 import Pegas.entity.Company;
 import Pegas.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 @Component
 @RequiredArgsConstructor
@@ -25,6 +23,9 @@ public class UserCreateEditMapper implements Mapper<UserCreateEditDto, User>{
         to.setBirthday(from.getBirthday());
         to.setRole(from.getRole());
         to.setCompany(getCompany(from.getCompanyId()));
+        Optional.ofNullable(from.getImage())
+                .filter(Predicate.not(MultipartFile::isEmpty))
+                .ifPresent(i-> to.setImage(i.getOriginalFilename()));
         return to;
     }
 
