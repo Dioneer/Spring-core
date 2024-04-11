@@ -2,8 +2,6 @@ package Pegas.dao;
 
 import Pegas.dto.FilterDTO;
 import Pegas.dto.IPersonalInfo;
-import Pegas.dto.PersonalInfo;
-import Pegas.dto.UserFilter;
 import Pegas.entity.*;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
@@ -13,7 +11,6 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 

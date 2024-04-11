@@ -1,6 +1,5 @@
 package Pegas.dto;
 
-import Pegas.entity.Birthday;
 import Pegas.entity.Role;
 import lombok.Value;
 

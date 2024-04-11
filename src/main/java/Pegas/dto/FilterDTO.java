@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 @Data
 public class FilterDTO {
-    String firstName;
+    String firstname;
     String lastname;
     LocalDate birthday;
 }

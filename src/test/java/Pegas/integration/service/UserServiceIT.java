@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -25,7 +26,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(classes = {TestApplicationRunner.class, ApplicationRunner.class})
 @RequiredArgsConstructor
 @TestConstructor(autowireMode = TestConstructor.AutowireMode.ALL)
-@Rollback
+@Transactional
+//@Rollback
 public class UserServiceIT {
     private static final Long USER_ID=1L;
     private final UserService userService;
@@ -44,7 +46,7 @@ public class UserServiceIT {
     @Test
     void create(){
         UserCreateEditDto user = new UserCreateEditDto(
-                "test@test3.ru",
+                "test@test4.ru",
                 LocalDate.of(2011,02,02),
                 "test",
         "test",

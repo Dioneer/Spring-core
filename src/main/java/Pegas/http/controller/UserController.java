@@ -1,7 +1,6 @@
 package Pegas.http.controller;
 
 import Pegas.dto.*;
-import Pegas.entity.Birthday;
 import Pegas.entity.Role;
 import Pegas.service.CompanyService;
 import Pegas.service.UserService;
@@ -16,10 +15,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
 
 @Controller
 @RequestMapping("/users")
@@ -69,7 +64,12 @@ public class UserController {
         return "redirect:/users/" + userReadDTO.getId();
     }
     @PostMapping("/{id}/update")
-    public String update(@PathVariable("id") Long id, @ModelAttribute @Valid UserCreateEditDto user){
+    public String update(@PathVariable("id") Long id, @ModelAttribute @Valid UserCreateEditDto user,
+                         BindingResult bindingResult,  RedirectAttributes redirectAttributes){
+        if(bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
+            return "redirect:/users/{id}";
+        }
         userService.update(id, user);
         return userService.update(id, user)
                 .map(it-> "redirect:/users/{id}")

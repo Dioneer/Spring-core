@@ -12,6 +12,7 @@ import org.springframework.test.context.TestConstructor;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrlPattern;
@@ -21,6 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RequiredArgsConstructor
 @TestConstructor(autowireMode = TestConstructor.AutowireMode.ALL)
 @AutoConfigureMockMvc
+@Transactional
 public class UserControllerIT {
     private final MockMvc mockMvc;
 
@@ -40,7 +42,7 @@ public class UserControllerIT {
                 .param("lastname", "test")
                 .param("role", "ADMIN")
                 .param("companyId", "1")
-                .param("birthday", "2000-01-01")
+                .param("birthday", "01-01-2002")
                 )
                 .andExpectAll(
                 status().is3xxRedirection(), redirectedUrlPattern("/users/{\\d+}"));

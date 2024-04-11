@@ -2,7 +2,6 @@ package Pegas.dao;
 
 import Pegas.dto.FilterDTO;
 import Pegas.dto.QPredicates;
-import Pegas.entity.Birthday;
 import Pegas.entity.QUser;
 import Pegas.entity.User;
 import com.querydsl.core.types.dsl.SimplePath;
@@ -12,11 +11,8 @@ import jakarta.persistence.criteria.Predicate;
 import lombok.RequiredArgsConstructor;
 import static Pegas.entity.QUser.user;
 //
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 @RequiredArgsConstructor
 public class FilterUserRepositoryImpl implements FilterUserRepository{
@@ -25,7 +21,7 @@ public class FilterUserRepositoryImpl implements FilterUserRepository{
     @Override
     public List<User> findAllByFilter(FilterDTO filter) {
         var predicate = QPredicates.builder()
-                .add(filter.getFirstName(), user.firstname::containsIgnoreCase)
+                .add(filter.getFirstname(), user.firstname::containsIgnoreCase)
                 .add(filter.getLastname(), user.lastname::containsIgnoreCase)
                 .add(filter.getBirthday(), user.birthday::before)
                 .build();

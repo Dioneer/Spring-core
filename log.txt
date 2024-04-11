@@ -5453,3 +5453,22 @@ org.springframework.expression.spel.SpelEvaluationException: EL1012E: Cannot ind
 
 2024-04-10T23:48:41.271+03:00  INFO 7432 --- [main] Pegas.pool.ConnectionPool                : init connection pool
 2024-04-10T23:49:12.476+03:00  INFO 2164 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-10T23:49:52.941+03:00  INFO 8292 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-11T00:33:34.574+03:00  INFO 2108 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-11T00:35:27.283+03:00  INFO 8356 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-11T00:37:36.206+03:00  INFO 10592 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-11T00:38:03.384+03:00  INFO 6440 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-11T15:00:03.598+03:00  INFO 6336 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-11T15:06:58.629+03:00  INFO 11968 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-11T15:11:02.127+03:00  INFO 6020 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-11T16:32:40.920+03:00  INFO 11344 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-11T16:33:40.349+03:00  WARN 11344 --- [http-nio-8080-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "id"]
+2024-04-11T16:33:43.341+03:00  WARN 11344 --- [http-nio-8080-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "`"]
+2024-04-11T16:33:55.293+03:00  WARN 11344 --- [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2024-04-11T16:34:10.679+03:00  WARN 11344 --- [http-nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2024-04-11T16:34:15.979+03:00  WARN 11344 --- [http-nio-8080-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2024-04-11T16:36:30.431+03:00  INFO 12692 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-11T16:37:28.917+03:00  INFO 1264 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-11T17:22:46.459+03:00  INFO 9148 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-11T18:35:49.121+03:00  INFO 17244 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-11T18:43:13.176+03:00  INFO 16472 --- [main] Pegas.pool.ConnectionPool                : init connection pool

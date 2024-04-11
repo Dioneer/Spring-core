@@ -33,7 +33,7 @@ public class UserService {
     }
     public Page<UserReadDTO> findAll(FilterDTO filter, Pageable pageable){
         var predicate = QPredicates.builder()
-                .add(filter.getFirstName(), user.firstname::containsIgnoreCase)
+                .add(filter.getFirstname(), user.firstname::containsIgnoreCase)
                 .add(filter.getLastname(), user.lastname::containsIgnoreCase)
                 .add(filter.getBirthday(), user.birthday::before)
                 .build();
@@ -49,6 +49,7 @@ public class UserService {
     public Optional<UserReadDTO> findById(Long id) {
         return userRepository.findById(id).map(userReadMapper::fromTo);
     }
+
     @Transactional
     public UserReadDTO create(UserCreateEditDto user){
         return Optional.of(user).map(userCreateEditMapper::fromTo)
@@ -58,7 +59,6 @@ public class UserService {
     }
     @Transactional
     public Optional<UserReadDTO> update(Long id, UserCreateEditDto user) {
-        System.out.println(user);
         return userRepository.findById(id)
                 .map(i->userCreateEditMapper.fromTo(user,i))
                 .map(userRepository::saveAndFlush)
