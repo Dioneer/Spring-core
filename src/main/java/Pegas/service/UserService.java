@@ -11,9 +11,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,9 +35,9 @@ public class UserService {
     }
     public Page<UserReadDTO> findAll(FilterDTO filter, Pageable pageable){
         var predicate = QPredicates.builder()
-//                .add(filter.getFirstname(), user.firstname::containsIgnoreCase)
-//                .add(filter.getLastname(), user.lastname::containsIgnoreCase)
-//                .add(filter.getBirthday(), user.birthday::before)
+                .add(filter.getFirstname(), user.firstname::containsIgnoreCase)
+                .add(filter.getLastname(), user.lastname::containsIgnoreCase)
+                .add(filter.getBirthday(), user.birthday::before)
                 .build();
 
         return userRepository.findAll(predicate, pageable)
@@ -57,7 +57,11 @@ public class UserService {
         return Optional.of(userDto)
                 .map(dto -> {uploadImage(dto.getImage());
                     return userCreateEditMapper.fromTo(userDto, new User());})
-                .map(userReadMapper::fromTo)
+                .map(userRepository::save)
+                .map(i-> {
+                    System.out.println(i);
+                    return userReadMapper.fromTo(i);
+                })
                 .orElseThrow();
     }
     @SneakyThrows
@@ -75,6 +79,14 @@ public class UserService {
                 .map(userRepository::saveAndFlush)
                 .map(userReadMapper::fromTo);
     }
+
+    public Optional<byte[]> findAvatar(Long id){
+        return userRepository.findById(id)
+                .map(User::getImage)
+                .filter(StringUtils::hasText)
+                .flatMap(imageService::get);
+    }
+
     @Transactional
     public boolean delete(Long id){
         return userRepository.findById(id)

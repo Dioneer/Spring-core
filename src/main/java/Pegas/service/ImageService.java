@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.Optional;
 
 @Service
 public class ImageService {
@@ -22,5 +23,11 @@ public class ImageService {
             Files.createDirectories(fullImagePath.getParent());
             Files.write(fullImagePath, content.readAllBytes(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
         }
+    }
+
+    @SneakyThrows
+    public Optional<byte[]> get(String image) {
+        Path fullImage = Path.of(bucket, image);
+        return Files.exists(fullImage)?Optional.of(Files.readAllBytes(fullImage)): Optional.empty();
     }
 }

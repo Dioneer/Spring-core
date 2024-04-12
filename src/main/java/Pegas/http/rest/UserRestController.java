@@ -30,6 +30,10 @@ public class UserRestController {
     public UserReadDTO findById(@PathVariable("id") Long id){
         return userService.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
+    @GetMapping(value = "/{id}/avatar", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    public byte[] findAvatar(@PathVariable("id") Long id){
+        return userService.findAvatar(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)

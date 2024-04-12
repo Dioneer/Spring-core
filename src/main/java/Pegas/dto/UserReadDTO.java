@@ -14,4 +14,5 @@ public class UserReadDTO {
     String lastname;
     Role role;
     CompanyDTO company;
+    String image;
 }
