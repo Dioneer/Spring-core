@@ -33,4 +33,5 @@ public class User implements BaseEntity<Long>{
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<UserChat> userChats = new ArrayList<>();
     private String image;
+    private String password;
 }

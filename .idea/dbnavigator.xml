@@ -67,7 +67,8 @@ create table if not exists users(
     lastname varchar(64),
     role varchar(32),
     company_id int references company(id),
-    image varchar(128)
+    image varchar(128),
+    password varchar(128) default '{noop}123'
 );
 create table if not exists chat(
     id bigserial primary key,
@@ -91,7 +92,9 @@ create table if not exists payment(
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="8dd2ed96-24eb-494a-9eb1-d2651a305688" object-ref="schemas/public/tables/users" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="8dd2ed96-24eb-494a-9eb1-d2651a305688" />

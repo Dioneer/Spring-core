@@ -3,6 +3,7 @@ package Pegas.dao;
 import Pegas.dto.FilterDTO;
 import Pegas.dto.IPersonalInfo;
 import Pegas.entity.*;
+import io.micrometer.observation.ObservationFilter;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
@@ -32,4 +33,6 @@ public interface UserRepository extends JpaRepository<User, Long>, FilterUserRep
     Slice<User> findAllBy(Pageable pageable);
 
     List<User> findAllByFilter(FilterDTO filter);
+
+    Optional<User> findByUsername(String username);
 }

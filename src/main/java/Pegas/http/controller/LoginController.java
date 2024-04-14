@@ -15,8 +15,8 @@ public class LoginController {
         return "user/login";
     }
 
-    @PostMapping("/login")
-    public String login(Model model, @ModelAttribute("login") LoginDTO loginDTO){
-        return "redirect:/login";
-    }
+//    @PostMapping("/login")
+//    public String login(Model model, @ModelAttribute("login") LoginDTO loginDTO){
+//        return "redirect:/login";
+//    }
 }
