@@ -46,6 +46,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.security:spring-security-test'
     implementation 'com.querydsl:querydsl-jpa:5.1.0:jakarta'
     annotationProcessor 'com.querydsl:querydsl-apt'
 }

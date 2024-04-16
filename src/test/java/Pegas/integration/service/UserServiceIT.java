@@ -9,11 +9,16 @@ import Pegas.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestConstructor;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -47,11 +52,12 @@ public class UserServiceIT {
     void create(){
         UserCreateEditDto user = new UserCreateEditDto(
                 "test@test4.ru",
-                LocalDate.of(2011,02,02),
-                "test",
-        "test",
+                LocalDate.of(2011, 02, 02),
+                "Rima",
+                "Rima",
                 Role.ADMIN,
-                1
+                5,
+                new MockMultipartFile("test", new byte[0])
         );
         UserReadDTO userReadDTO = userService.create(user);
         assertEquals(user.getUsername(), userReadDTO.getUsername());
@@ -69,7 +75,8 @@ public class UserServiceIT {
                 "test1",
                 "test1",
                 Role.ADMIN,
-                1
+                1,
+                new MockMultipartFile("test", new byte[0])
         );
         Optional<UserReadDTO> userReadDTO = userService.update(USER_ID, user);
         assertTrue(userReadDTO.isPresent());

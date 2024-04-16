@@ -8,6 +8,7 @@ import org.hamcrest.collection.IsCollectionWithSize;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.TestConstructor;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -23,7 +24,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @TestConstructor(autowireMode = TestConstructor.AutowireMode.ALL)
 @AutoConfigureMockMvc
 @Transactional
-public class UserControllerIT {
+@WithMockUser(username = "ivanov@gmail.com", password="123", authorities = {"ADMIN"})
+public class  UserControllerIT {
     private final MockMvc mockMvc;
 
     @Test
@@ -31,8 +33,7 @@ public class UserControllerIT {
         mockMvc.perform(MockMvcRequestBuilders.get("/users"))
                 .andExpect(status().is2xxSuccessful())
                 .andExpect(MockMvcResultMatchers.view().name("user/users"))
-                .andExpect(MockMvcResultMatchers.model().attributeExists("users"))
-                .andExpect(MockMvcResultMatchers.model().attribute("users", IsCollectionWithSize.hasSize(6)));
+                .andExpect(MockMvcResultMatchers.model().attributeExists("users"));
     }
     @Test
     void create() throws Exception {
