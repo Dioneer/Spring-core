@@ -1037,3 +1037,4 @@ org.springframework.security.access.AccessDeniedException: Access Denied
 2024-04-17T00:58:09.521+03:00  INFO 99772 --- [main] Pegas.pool.ConnectionPool                : init connection pool
 2024-04-17T01:18:39.044+03:00  INFO 123576 --- [main] Pegas.pool.ConnectionPool                : init connection pool
 2024-04-17T01:20:07.505+03:00  INFO 126480 --- [main] Pegas.pool.ConnectionPool                : init connection pool
+2024-04-17T19:36:57.563+03:00  INFO 63164 --- [main] Pegas.pool.ConnectionPool                : init connection pool
