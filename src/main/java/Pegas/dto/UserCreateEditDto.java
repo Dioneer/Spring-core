@@ -1,6 +1,7 @@
 package Pegas.dto;
 
 import Pegas.entity.Role;
+import Pegas.validation.UserInfo;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -14,6 +15,7 @@ import java.time.LocalDate;
 
 @Value
 @FieldNameConstants
+@UserInfo
 public class UserCreateEditDto {
     @Email
     String username;

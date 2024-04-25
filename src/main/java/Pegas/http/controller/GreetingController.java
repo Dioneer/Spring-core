@@ -32,6 +32,7 @@ public class GreetingController {
                               @RequestParam("age") Integer age,
                               @RequestHeader("accept") String accept,
                               @CookieValue ("JSESSIONID") String jsessionId,
+                              @PathVariable("id")Long id,
                               Model model,
                               UserReadDTO userReadDTO){
         Integer age1 = age;

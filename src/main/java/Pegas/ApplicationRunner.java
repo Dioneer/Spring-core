@@ -12,12 +12,12 @@ import java.sql.SQLException;
 //--spring.profiles.active=qa
 ///swagger-ui/index.html
 @SpringBootApplication
-@ConfigurationPropertiesScan
+//@ConfigurationPropertiesScan
 public class ApplicationRunner {
     public static void main(String[] args) {
         var context = SpringApplication.run(ApplicationRunner.class, args);
         System.out.println(SpringProperties.getProperty("test.msg"));
         System.out.println(context.getBean("connectionPool"));
-        System.out.println(context.getBean(DatabaseProperties.class));
+//        System.out.println(context.getBean(DatabaseProperties.class));
     }
 }
