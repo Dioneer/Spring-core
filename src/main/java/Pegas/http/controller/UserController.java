@@ -44,7 +44,7 @@ public class UserController {
         model.addAttribute("companies", companyService.findAll());
         return "user/registration";
     }
-    @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
+//    @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
     @GetMapping("/{id}")
     public String findById(@PathVariable("id") Long id, Model model,
                            @CurrentSecurityContext SecurityContext securityContext,

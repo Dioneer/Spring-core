@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.core.SpringProperties;
 
-import java.sql.SQLException;
 ///v3/api-docs
 //--spring.profiles.active=qa
 ///swagger-ui/index.html
@@ -18,6 +17,6 @@ public class ApplicationRunner {
         var context = SpringApplication.run(ApplicationRunner.class, args);
         System.out.println(SpringProperties.getProperty("test.msg"));
         System.out.println(context.getBean("connectionPool"));
-//        System.out.println(context.getBean(DatabaseProperties.class));
+        System.out.println(context.getBean(DatabaseProperties.class));
     }
 }

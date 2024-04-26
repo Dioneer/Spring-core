@@ -92,9 +92,7 @@ create table if not exists payment(
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="8dd2ed96-24eb-494a-9eb1-d2651a305688" object-ref="consoles/init_tables" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="8dd2ed96-24eb-494a-9eb1-d2651a305688" />
@@ -107,15 +105,25 @@ create table if not exists payment(
     </filter-actions>
     <filter-actions connection-id="8dd2ed96-24eb-494a-9eb1-d2651a305688" dataset="public.users_chat" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="8dd2ed96-24eb-494a-9eb1-d2651a305688" dataset="public.company" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="8dd2ed96-24eb-494a-9eb1-d2651a305688" dataset="public.databasechangeloglock" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="8dd2ed96-24eb-494a-9eb1-d2651a305688" dataset="public.chat" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="8dd2ed96-24eb-494a-9eb1-d2651a305688" dataset="public.company_loclas" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="8dd2ed96-24eb-494a-9eb1-d2651a305688" dataset="public.databasechangelog" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="8dd2ed96-24eb-494a-9eb1-d2651a305688" dataset="public.payment" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
   </component>
+  <component name="DBNavigator.Project.FileConnectionMappingManager">
+    <mapping file-url="file://$PROJECT_DIR$/src/main/resources/sql/init_tables.sql" connection-id="8dd2ed96-24eb-494a-9eb1-d2651a305688" session-id="MAIN" current-schema="public" />
+    <mapping file-url="file://$PROJECT_DIR$/src/main/resources/sql/fill_tables.sql" connection-id="8dd2ed96-24eb-494a-9eb1-d2651a305688" session-id="MAIN" current-schema="public" />
+  </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
     <filters />
+  </component>
+  <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
+    <recently-used-interfaces />
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
