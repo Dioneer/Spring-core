@@ -17,6 +17,6 @@ public class ApplicationRunner {
         var context = SpringApplication.run(ApplicationRunner.class, args);
         System.out.println(SpringProperties.getProperty("test.msg"));
         System.out.println(context.getBean("connectionPool"));
-        System.out.println(context.getBean(DatabaseProperties.class));
+//        System.out.println(context.getBean(DatabaseProperties.class));
     }
 }

@@ -23,7 +23,7 @@ db:
 
 logging:
   level:
-    root: WARN
+    root: INFO
     Pegas.pool.ConnectionPool: INFO
   file:
     name: log.txt
